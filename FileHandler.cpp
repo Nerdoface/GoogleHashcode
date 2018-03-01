@@ -29,6 +29,8 @@ public:
 	std::list<Route> routes;
 
 
+	int index = 0;
+
 	void openFile(std::string location){
 		std::ifstream bestand(location);
 		std::string line;
@@ -146,6 +148,9 @@ public:
 		
 					}
 
+					r.routeIndex = index;
+
+					index++;
 					routes.push_back(r);
 				}
 

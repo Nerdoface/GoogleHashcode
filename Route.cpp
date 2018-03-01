@@ -7,6 +7,9 @@
 class Route{
 
 public:
+
+	int routeIndex;
+
 	int sX;
 	int sY;
 
