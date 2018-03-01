@@ -20,11 +20,11 @@ private:
 
 //	std::vector<std::vector<int>> routes;
 
-	std::list<Route> routes;
+
 
 public:
 
-
+	std::list<Route> routes;
 
 
 	void openFile(std::string location){
