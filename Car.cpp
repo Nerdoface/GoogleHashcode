@@ -22,7 +22,7 @@ public:
 		}
 		std::cout << "getFastestRoute. step: " << curStep << " routes: " << routes.size() << std::endl;
 		
-		int maxScore = -1000000;
+		double maxScore = -1000000;
 		std::list<Route>::iterator car;
 
 
@@ -31,7 +31,7 @@ public:
 
 		for (it = routes.begin(); it != routes.end(); ++it){
 
-			int score = 0;
+			double score = 0;
 			int tendStep = 0;
 
 			int carDistance = (abs(posX - it->sX) + abs(posY - it->sY));
@@ -42,14 +42,14 @@ public:
 			
 			int stepToStart = it->sS - curStep;
 			if (carDistance <= stepToStart){
-				score += (it->getLength() + bonus) / (it->getLength() + stepToStart);
+				score += (double)(it->getLength() + bonus) / (it->getLength() + stepToStart);
 				tendStep = it->getLength() + stepToStart + curStep;
 			}
 			else{
-				score +=  (it->getLength()) / (it->getLength() + carDistance());
+				score +=  (double)(it->getLength()) / (it->getLength() + carDistance);
 				tendStep = it->getLength() + carDistance + curStep;
-				}
 			}
+
 
 			if (score > maxScore){
 				maxScore = score;
