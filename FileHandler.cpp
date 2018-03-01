@@ -9,6 +9,14 @@ class FileHandler{
 
 private:
 
+
+
+//	std::vector<std::vector<int>> routes;
+
+
+
+public:
+
 	int nRows;
 	int nCols;
 
@@ -17,12 +25,6 @@ private:
 
 	int nBon;
 	int nSteps;
-
-//	std::vector<std::vector<int>> routes;
-
-
-
-public:
 
 	std::list<Route> routes;
 
