@@ -51,6 +51,8 @@ public:
 		
 
 		routes.erase(car);
+		routesToTake.push_back(*car);
+
 
 	}
 
