@@ -1,11 +1,54 @@
 #include <iostream>
 #include <vector>
 #include <cmath>  
+#include <fstream>
+#include "Car.cpp"
+#include "FileHandler.cpp"
+#include "Route.cpp"
 
+FileHandler file;
+
+void output(std::vector<Car> cars) {
+	std::ofstream out("poepiekutaron.txt");
+	for (auto& car : cars) {
+		std::cout << car.routesToTake.size() << std::endl;
+		out << car.routesToTake.size();
+		for (auto& route : car.routesToTake) {
+			out << " " << route.routeIndex;
+		}
+		out << std::endl;
+	}
+}
+
+void cleanUp(int step) {
+	for (auto it = file.routes.begin(); it != file.routes.end(); )
+		if (it->getLength() + step > it->sF)
+			file.routes.erase(it++);
+		else
+			it++;
+}
 
 int main(){
+	file.openFile("a_example.in");
+	std::vector<Car> cars(file.nVeh);
+	std::cout << file.routes.size() << std::endl;
+	std::cout << cars.size() << std::endl;
+	for (int i = 0; i < file.nSteps; ++i) {
+		cleanUp(i);
 
+		std::cout << file.routes.size() << std::endl;
 
+		std::cout << file.routes.size() << std::endl;
+		for (auto& car : cars) {
+			if (car.endStep <= i) {
+				car.getFastestRoute(file.routes, i, file.nBon);
+			}
+		}
+	}
+
+	output(cars);
+	int aids;
+	std::cin >> aids;
 	return 0;
 }
 

@@ -16,13 +16,15 @@ public:
 	int endStep;
 
 	void getFastestRoute(std::list<Route>& routes, int curStep, int bonus){
-
+		std::cout << curStep << std::endl;
 		
 		int shortestDistance = 0;
 		std::list<Route>::iterator car;
 
 
 		std::list<Route>::iterator it;
+
+
 		for (it = routes.begin(); it != routes.end(); ++it){
 
 			int score = 0;
@@ -54,8 +56,8 @@ public:
 
 		
 
-		routes.erase(car);
 		routesToTake.push_back(*car);
+		routes.erase(car);
 
 
 	}

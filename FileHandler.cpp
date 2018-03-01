@@ -42,15 +42,17 @@ public:
 		if (bestand.is_open()){
 			while (std::getline(bestand, line))
 			{
+				line += " ";
 				if (eersteRegel){
 
 					int aantalSpaces = 0;
 					std::string temp;
 
 					for (std::string::size_type i = 0; i < line.size(); ++i) {
-						
 
 						if (line[i] == ' '){
+
+							//temp = line.substr(i);
 
 							std::string::size_type sz;
 							int t = std::stoi(temp, &sz);
@@ -89,6 +91,7 @@ public:
 								
 
 							}
+							aantalSpaces++;
 							
 						}
 						else{
@@ -138,6 +141,7 @@ public:
 
 							aantalSpaces++;
 
+							temp.clear();
 							}
 						else{
 
@@ -159,6 +163,8 @@ public:
 			}
 			bestand.close();
 		}
+		std::cout << routes.size() << std::endl;
+
 	}
 
 
