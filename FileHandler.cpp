@@ -82,9 +82,12 @@ public:
 								
 
 							}
+							
 						}
-
-						temp += line[i];
+						else{
+							temp += line[i];
+						}
+						
 
 					}
 
