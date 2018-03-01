@@ -39,18 +39,15 @@ public:
 			if (it->sF < carDistance + it->getLength() + curStep){
 				continue;
 			}
+			
+			int stepToStart = it->sS - curStep;
+			if (carDistance <= stepToStart){
+				score += (it->getLength() + bonus) / (it->getLength() + stepToStart);
+				tendStep = it->getLength() + stepToStart + curStep;
+			}
 			else{
-				int numSteps = it->sF - curStep;
-				int stepToStart = it->sS - curStep;
-				if (carDistance >= stepToStart - bonus){
-					score += -it->getLength() + bonus - stepToStart;
-					tendStep = it->getLength() + stepToStart + curStep;
-				}
-				else{
-
-					score += -it->getLength() - carDistance;
-					tendStep = it->getLength() + carDistance + curStep;
-
+				score +=  (it->getLength()) / (it->getLength() + carDistance());
+				tendStep = it->getLength() + carDistance + curStep;
 				}
 			}
 
