@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
+#include <list>
+#include "Route.cpp"
 
 class FileHandler{
 
@@ -17,7 +18,9 @@ private:
 	int nBon;
 	int nSteps;
 
-	std::vector<std::vector<int>> routes;
+//	std::vector<std::vector<int>> routes;
+
+	std::list<Route> routes;
 
 public:
 
@@ -97,8 +100,10 @@ public:
 				else{
 
 					std::string temp;
-					std::vector<int> vVec;
+					Route r;
 
+
+					int aantalSpaces = 0;
 
 					for (std::string::size_type i = 0; i < line.size(); ++i) {
 
@@ -108,8 +113,26 @@ public:
 							std::string::size_type sz;
 							int t = std::stoi(temp, &sz);
 
-							vVec.push_back(t);
-							temp.clear();
+							if (aantalSpaces == 0){
+								r.sX = t;
+							}
+							if (aantalSpaces == 1){
+								r.sY = t;
+							}
+							if (aantalSpaces == 2){
+								r.eX = t;
+							}
+							if (aantalSpaces == 3){
+								r.eY = t;
+							}
+							if (aantalSpaces == 4){
+								r.sS = t;
+							}
+							if (aantalSpaces == 5){
+								r.sF = t;
+							}
+
+							aantalSpaces++;
 
 							}
 						else{
@@ -121,7 +144,7 @@ public:
 		
 					}
 
-					routes.push_back(vVec);
+					routes.push_back(r);
 				}
 
 				std::cout << line << '\n';
