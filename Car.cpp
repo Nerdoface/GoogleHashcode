@@ -13,7 +13,9 @@ public:
 	int posX;
 	int posY;
 
-	void getFastestRoute(std::list<Route> routes, int curStep, int bonus){
+	int endStep;
+
+	void getFastestRoute(std::list<Route>& routes, int curStep, int bonus){
 
 		
 		int shortestDistance = 0;
@@ -34,10 +36,12 @@ public:
 				int numSteps = it->sF - curStep;
 				if (carDistance <= numSteps){
 					score += it->getLength() + bonus - numSteps;
+					endStep = it->getLength() + numSteps;
 				}
 				else{
 
 					score += it->getLength() - carDistance;
+					endStep = it->getLength() + carDistance;
 
 				}
 			}
