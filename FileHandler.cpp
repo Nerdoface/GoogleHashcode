@@ -109,7 +109,7 @@ public:
 							int t = std::stoi(temp, &sz);
 
 							vVec.push_back(t);
-
+							temp.clear();
 
 							}
 						else{
