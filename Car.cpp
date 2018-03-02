@@ -12,6 +12,8 @@ public:
 
 	int posX;
 	int posY;
+	int tempPosX;
+	int tempPosY;
 
 	int endStep;
 
