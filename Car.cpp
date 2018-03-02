@@ -55,11 +55,13 @@ public:
 				maxScore = score;
 				car = it;
 				endStep = tendStep;
-				posX = it->eX;
-				posY = it->eY;
+				tempPosX = it->eX;
+				tempPosY = it->eY;
 			}
 		}
 
+		posX = tempPosX;
+		posY = tempPosY;
 		
 
 		routesToTake.push_back(*car);
