@@ -55,6 +55,8 @@ public:
 				maxScore = score;
 				car = it;
 				endStep = tendStep;
+				posX = it->eX;
+				posY = it->eY;
 			}
 		}
 
